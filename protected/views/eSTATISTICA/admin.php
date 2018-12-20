@@ -1,4 +1,4 @@
-<h2>Alterar entrada #<?=$_GET[id]?></h2>
+<h2>ALTERAR REGISTRO #<?=$_GET[id]?></h2>
 
 <table class="dataGrid">
   <thead>

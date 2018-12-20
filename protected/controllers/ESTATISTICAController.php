@@ -162,20 +162,33 @@ class ESTATISTICAController extends CController
 	}
 	
 	public function actionGeraxls()
-	{
-		$criteria = new CDbCriteria;
-		$criteria->condition = 'idformulario = '.$_GET[id];
+	{		
+		$criteria=new CDbCriteria;
+		$criteria->condition = 'idformulario = '.$_GET['id'];
 		
-		$models = ESTATISTICA::model()->findAll($criteria);
+		$f_models = FORMULARIO::model()->with('grupos')->findAll($criteria);
 		
-		$this->renderPartial('geraxls',array('models'=>$models));
+		$e_criteria = new CDbCriteria;
+		$e_criteria->condition = 'idformulario = '.$_GET['id'];
+		$e_criteria->select = 'codformulario';
+		$e_criteria->order = 'codformulario ASC';
+		$e_criteria->distinct = 'codformulario';
+		
+		//$e_models = ESTATISTICA::model()->findAll($e_criteria);
+		
+		$command = Yii::app()->db->createCommand('Select DISTINCT(codformulario) from ESTATISTICA where idformulario ='.$_GET['id']);	
+		
+		$e_models = $command->queryAll();
+		
+		$this->renderPartial('geraxls',array('models'=>$f_models,'estats'=>$e_models));
+
 	}
 	
 	public function actionSubadmin(){
 		
 		$this->processAdminCommand();
 
-		$criteria=new CDbCriteria;
+		$criteria=new CDbCriteria; 
 		
 		$criteria->condition = 'codformulario = '.$_GET[id];
 

@@ -48,9 +48,9 @@ class FORMULARIO extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array( 
 			'estat' => array(self::HAS_MANY, 'ESTATISTICA', 'idformulario'),
-			'count' => array(self::HAS_MANY, 'ESTATISTICA', 'idformulario', 'group'=>'codformulario'),
-			'lastform' => array(self::HAS_ONE, 'ESTATISTICA', 'idformulario','select'=>'codformulario', 'order'=>'data DESC'),
-			'grupos' => array(self::MANY_MANY, 'AGRUPAMENTOS', 'rel_form_agrup(idformulario, idagrupamento)'),
+			'cont' => array(self::HAS_MANY, 'ESTATISTICA', 'idformulario', 'group'=>'codformulario'),
+			'lastform' => array(self::HAS_ONE, 'ESTATISTICA', 'idformulario','select'=>'codformulario', 'order'=>'idestatistica DESC limit 1'),
+			'grupos' => array(self::MANY_MANY, 'AGRUPAMENTOS', 'rel_form_agrup(idformulario, idagrupamento)','select'=>'*','order'=>'ordem ASC'),
 		);
 	}
 

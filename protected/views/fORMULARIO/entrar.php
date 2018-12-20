@@ -2,10 +2,6 @@
 <link rel="stylesheet" href="lib/spry/widgets/textfieldvalidation/SpryValidationTextField.css">
 <script type="text/javascript" src="lib/spry/widgets/radiovalidation/SpryValidationRadio.js"></script>
 <script type="text/javascript" src="lib/spry/widgets/textfieldvalidation/SpryValidationTextField.js"></script>
-<!--<link rel="stylesheet" href="lib/jqtransformplugin/jqtransform.css">
-<script type="text/javascript" src="lib/jquery/jquery.js"></script>
-<script type="text/javascript" src="lib/jqtransformplugin/jquery.jqtransform.js"></script>-->
-
 <style>
 .radioRequiredState{
 	background-color:#FF9999;
@@ -14,9 +10,14 @@
 .radioValidState{
 	background-color:#9F9;
 	border:thin solid #090;
-}
+} 
 </style>
-<h2><?php echo $model->long_desc; ?></h2>
+<? if ($ed) { ?>
+<script> 
+	alert('Atenção: Este modo é apenas para inserir as partes dos formulários que não foram computadas antes');
+</script>
+<? } ?>
+<h2><?php echo $model->long_desc; $i = 0; ?></h2>
 
 <div class="actionBar">
   
@@ -29,7 +30,7 @@
 		<?php echo CHtml::encode('N# AUTOMATICO'); ?>
 	</th>
     <td>
-    	<?php echo $model->lastform->idestatistica?>
+    	<?php echo (isset($model->lastform->idestatistica))?$model->lastform->idestatistica:$model->idformulario.'00'; ?>
 	</td>
 	<th class="label" width='5%'>
 		<?php echo CHtml::encode('RESPOSTA N#'); ?>
@@ -41,7 +42,7 @@
 		</script>
 	</td class='label'>
 	<th width='10%' align='center'>
-		SUGESTÃO:<br>#<?php echo $model->lastform->codformulario+1?>
+		SUGESTÃO:<br>#<?php echo (isset($model->lastform->codformulario))?$model->lastform->codformulario+1:$model->idformulario.'01'?>
 	</th>
 </tr>
 	<?php $grps = $model->grupos;
@@ -51,28 +52,48 @@
 			<h2><?php echo 'G'.STR_PAD($grupo->idagrupamento,3,'0',STR_PAD_LEFT).' - '.$grupo->titulo;?></h2>
 			<table width=100%>
 				<?php foreach ($grupo->perguntas as $g=>$perg){ ?> 
-				<?php $radid =$model->idformulario.$grupo->idagrupamento.$perg->idpergunta; ?>
-					<tr>
+				<?php $radid = $model->idformulario.$grupo->idagrupamento.$perg->idpergunta; ?>
+                <? 
+					$edit = false;
+					
+					if ($ed == 1) {
+						switch (true) {
+							case ($model->idformulario != 13):{
+								if ($i>198) $edit = true;
+							}; break;
+							case ($model->idformulario == 13):{
+								if (($grupo->idagrupamento >= 211)&&($grupo->idagrupamento <= 214)) $edit = true;
+							}; break;							
+						}
+					} else {
+						$edit = true;
+					}
+				?>
+					<? if ($edit) { ?><tr>
 						<td>
 							<? echo $g+1; ?>
 						</td>
 						<td>
 							<? echo $perg->descricao; ?>
 						</td>
-						<td id='vradio<?=$radid?>'>
+						<td id='vradio<?=$radid?>' width='240px'>
 							<div class="rowElem">
 								<?php foreach($perg->repossiveis as $p=>$pr) { ?>
+                                	
 									<input type='radio' name='<?=$model->idformulario."|".$grupo->idagrupamento."|".$perg->idpergunta?>' value='<?=$pr->idresp_possivel?>'/>
 									<label for='<?=$model->idformulario."|".$grupo->idagrupamento."|".$perg->idpergunta?>'>
 										<? echo $pr->codigo; ?>
 									</label>
+                                    
+									
 								<? }?>
+                                
 					 		</div>
 						</td>
 					</tr>
 					<script>
 						var vradio<?=$radid?> = new Spry.Widget.ValidationRadio("vradio<?=$radid?>", {validateOn:["submit","change"]});
-					</script> 
+					</script> <? } ?><? $i++; ?>
 				<? }; ?>
 				
 			</table>
@@ -82,7 +103,7 @@
 	?>
 </table>
 <div class="action"> 
-<?php echo CHtml::submitButton($update ? 'Save' : 'Create'); ?>
+<?php echo CHtml::submitButton(isset($update) ? 'Inserir' : 'Inserir'); ?>
 </div>
 <?php echo CHtml::endForm(); ?>
 </div>

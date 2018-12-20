@@ -89,7 +89,7 @@ class FORMULARIOController extends CController
 	 
 	public function actionEntrar()
 	{
-		if (!$mod) {$mod = new ESTATISTICA; };
+		if (!isset($mod)) {$mod = new ESTATISTICA; };
 		foreach ($_POST as $indice => $valor){
 			if (($indice != 'yt0')&&($indice!='FORMID')){
 				$ent = explode('|',$indice);
@@ -98,13 +98,14 @@ class FORMULARIOController extends CController
 				$mod->idformulario = $ent[0];
 				$mod->idagrupamento = $ent[1];
 				$mod->idpergunta = $ent[2];
-				$mod->codformulario = $_POST[FORMID];
+				$mod->codformulario = $_POST['FORMID'];
 				$mod->idresp_possivel = $valor;
 				$mod->save();
 			}
 			 
 		}
-		$this->render('entrar',array('model'=>$this->loadFORMULARIO(),'mod'=>$mod));
+		$ed = (isset($_GET['ed']))?1:0;
+		$this->render('entrar',array('model'=>$this->loadFORMULARIO(),'mod'=>$mod,'ed'=>$ed));
 	}
    
 	/**
@@ -198,6 +199,24 @@ class FORMULARIOController extends CController
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $this->_model;
+	}
+	
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer the primary key value. Defaults to null, meaning using the 'id' GET variable
+	 */
+	public function loadFaultFORMULARIO($id=null)
+	{
+/*		if($this->_model===null)
+		{
+			if($id!==null || isset($_GET['id']))
+				$criteria = new CDbCriteria;
+				$this->_model=FORMULARIO::model()->findbyPk($id!==null ? $id : $_GET['id']);
+			if($this->_model===null)
+				throw new CHttpException(404,'Nada encontrado.');
+		}
+		return $this->_model;*/
 	}
 
 	/**

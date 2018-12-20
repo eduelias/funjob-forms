@@ -7,11 +7,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 <title><?php echo $this->pageTitle; ?></title>
 </head>
-
 <body>
 <div id="page">
-
-<div id="header">
+ 
+<div id="header"> 
 <div id="mainmenu">
 <?php $this->widget('application.components.MainMenu',array(
 	'items'=>array(
@@ -31,9 +30,11 @@
 </div><!-- content -->
 
 <div id="footer">
-Copyright &copy; 2009 by Core Soluções LTDA-ME.<br/>
+Copyright &copy; <?php //echo gmdate('Y');?> por Core Soluções LTDA-ME.<br/>
 Todos os direitos reservados.<br/>
-<?php echo Yii::powered(); ?>
+<?php echo Yii::powered(); ?><br />
+<?php echo (YII_DEBUG)?'Mem usada: '.memory_get_usage(true):''; ?>
+
 </div><!-- footer -->
 
 </div><!-- page -->

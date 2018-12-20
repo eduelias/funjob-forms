@@ -38,6 +38,7 @@ class ESTATISTICA extends CActiveRecord
 	{
 		return array(
 			array('codformulario', 'numerical', 'integerOnly'=>true),
+			array('idresp_possivel', 'required'),
 		);
 	}
 
@@ -63,14 +64,13 @@ class ESTATISTICA extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idestatistica' => 'Idestatistica',
+			'idestatistica' => 'ID',
 			'idpesquisa' => 'Idpesquisa',
 			'idformulario' => 'Idformulario',
-			'idagrupamento' => 'Idagrupamento',
-			'idpergunta' => 'Idpergunta',
-			'idresp_possivel' => 'Idresp Possivel',
-			'data' => 'Data',
-			'codformulario' => 'Codformulario',
+			'idagrupamento' => 'GRP',
+			'idpergunta' => 'Pergunta',
+			'idresp_possivel' => 'Resposta',
+			'codformulario' => 'FRM',
 		);
 	}
 }

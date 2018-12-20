@@ -48,7 +48,7 @@ class AGRUPAMENTOS extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'estat' => array(self::HAS_MANY, 'Estatistica', 'idagrupamento'),
-			'perguntas' => array(self::MANY_MANY, 'PERGUNTAS', 'rel_agrup_perg(idagrupamento, idpergunta)'),
+			'perguntas' => array(self::MANY_MANY, 'PERGUNTAS', 'rel_agrup_perg(idagrupamento,idpergunta)','select'=>'*','order'=>'ordem ASC'),
 			'formularios' => array(self::MANY_MANY, 'Formulario', 'rel_form_agrup(idformulario, idagrupamento)'),
 		);
 	}

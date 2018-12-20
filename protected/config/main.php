@@ -8,9 +8,10 @@
 return array( 
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Funjob',
+	'language'=>'pt_br',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	//'preload'=>array('log'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -20,15 +21,15 @@ return array(
 
 	// application components
 	'components'=>array(
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-			),
-		),
+		//'log'=>array(
+		//	'class'=>'CLogRouter',
+		//	'routes'=>array(
+		//		array(
+				//	'class'=>'CFileLogRoute',
+					//'levels'=>'error, warning',
+		//		),
+		//	),
+		//),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -47,6 +48,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'webmaster@coreos.com.br',
 	),
 );
