@@ -1,0 +1,48 @@
+2009/11/30 22:47:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "resp_possives".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('resp_possives')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=resp_possives
+2009/12/06 23:29:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "forms".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('forms')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=forms
+2009/12/06 23:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "form".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('form')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=form
+2009/12/06 23:30:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "FORMS".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('FORMS')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=FORMS
+2009/12/06 23:30:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "FORM".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('FORM')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=FORM
+2009/12/06 23:30:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "FORMULARIOS".' in /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/eduardo/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('FORMULARIOS')
+#1 /var/www/eduardo/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/eduardo/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=FORMULARIOS
+2009/12/06 23:42:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "FORMULARIOS".' in /var/www/thoth/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/thoth/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('FORMULARIOS')
+#1 /var/www/thoth/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/thoth/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=FORMULARIOS
+2009/12/13 09:45:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "FORMULARIOS".' in /var/www/thoth/webus/1.0/framework/web/CWebApplication.php:336
+Stack trace:
+#0 /var/www/thoth/webus/1.0/framework/web/CWebApplication.php(120): CWebApplication->runController('FORMULARIOS')
+#1 /var/www/thoth/webus/1.0/framework/base/CApplication.php(135): CWebApplication->processRequest()
+#2 /var/www/thoth/funjob/index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/funjob/index.php?r=FORMULARIOS

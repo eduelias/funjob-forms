@@ -1,0 +1,43 @@
+<h2>ESTATISTICA List</h2>
+
+<div class="actionBar">
+[<?php echo CHtml::link('New ESTATISTICA',array('create')); ?>]
+[<?php echo CHtml::link('Manage ESTATISTICA',array('admin')); ?>]
+</div>
+
+<?php $this->widget('CLinkPager',array('pages'=>$pages)); ?>
+
+<?php foreach($models as $n=>$model): ?>
+<div class="item">
+<?php echo CHtml::encode($model->getAttributeLabel('idestatistica')); ?>:
+<?php echo CHtml::link($model->idestatistica,array('show','id'=>$model->idestatistica)); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('idpesquisa')); ?>:
+<?php echo CHtml::encode($model->idpesquisa); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('idformulario')); ?>:
+<?php echo CHtml::encode($model->idformulario); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('idagrupamento')); ?>:
+<?php echo CHtml::encode($model->idagrupamento); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('idpergunta')); ?>:
+<?php echo CHtml::encode($model->idpergunta); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('idresp_possivel')); ?>:
+<?php echo CHtml::encode($model->idresp_possivel); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('data')); ?>:
+<?php echo CHtml::encode($model->data); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('nome')); ?>:
+<?php echo CHtml::encode($model->nome); ?>
+<br/>
+<?php echo CHtml::encode($model->getAttributeLabel('digitador')); ?>:
+<?php echo CHtml::encode($model->digitador); ?>
+<br/>
+
+</div>
+<?php endforeach; ?>
+<br/>
+<?php $this->widget('CLinkPager',array('pages'=>$pages)); ?>
